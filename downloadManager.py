@@ -1,5 +1,5 @@
 import uuid
-
+from pathlib import Path
 from download import Download
 class Manager:
 
@@ -10,9 +10,9 @@ class Manager:
     def id_generator(self):
         return uuid.UUID
 
-    def download(self,url):
+    def download(self,url,filePath):
         id = self.id_generator()
-        download = Download(url,id)
+        download = Download(url,id,filePath)
         response = download.start_download()
         if response == 0:
             print("Download Failed")
